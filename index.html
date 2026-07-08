@@ -97,6 +97,7 @@
       <button data-view="search"><span class="ico">⌕</span><span class="txt">Search</span></button>
       <button data-view="mentions"><span class="ico">@</span><span class="txt">Mentions</span></button>
       <button data-view="me"><span class="ico">☺</span><span class="txt">Profile</span></button>
+      <button data-view="wallet"><span class="ico">₿</span><span class="txt">Wallet</span></button>
       <button data-view="relays"><span class="ico">⛁</span><span class="txt">Relays</span></button>
     </nav>
     <div class="side-login"><nostr-login></nostr-login></div>
@@ -145,6 +146,10 @@
       </div>
     </div>
 
+    <div class="view" id="view-wallet">
+      <nostr-wallet></nostr-wallet>
+    </div>
+
     <div class="view" id="view-relays">
       <nostr-relay-manager></nostr-relay-manager>
       <footer id="cache-line"></footer>
@@ -187,6 +192,7 @@
 
   import('https://nostr-client.github.io/reactions/reactions.js') // note cards grow reaction bars
   import('https://nostr-client.github.io/tip/tip.js')             // profile cards grow ₿ buttons
+  import('https://nostr-client.github.io/wallet/wallet.js')       // built-in wallet + instant tips
   await Promise.all([
     'login/login.js', 'composer/composer.js', 'feed/feed.js', 'thread/thread.js',
     'notifications/notifications.js', 'search/search.js', 'contacts/contacts.js',
@@ -201,7 +207,7 @@
 
   // ------------------------------------------------------------- router
   const TITLES = { home: 'Home', explore: 'Explore', search: 'Search', mentions: 'Mentions',
-    me: 'Profile', relays: 'Relays', thread: 'Thread', person: 'Profile', tag: 'Hashtag' }
+    me: 'Profile', wallet: 'Wallet', relays: 'Relays', thread: 'Thread', person: 'Profile', tag: 'Hashtag' }
   const tabs = document.querySelectorAll('#nav button')
   let currentTab = 'home'
 
