@@ -151,6 +151,9 @@
     </div>
 
     <div class="view" id="view-relays">
+      <h3 class="sub">Theme</h3>
+      <nostr-theme-picker></nostr-theme-picker>
+      <h3 class="sub" style="margin-top:1.4rem">Relays</h3>
       <nostr-relay-manager></nostr-relay-manager>
       <footer id="cache-line"></footer>
     </div>
@@ -180,6 +183,8 @@
 </div>
 
 <script type="module">
+  const { restoreTheme } = await import('https://nostr-client.github.io/theme/themes.js')
+  restoreTheme()
   // hardened shared pool: verify inside, cache outside — before any component loads
   {
     const { Pool } = await import('https://nostr-client.github.io/pool/pool.js')
