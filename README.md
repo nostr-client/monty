@@ -5,6 +5,8 @@ buildless HTML file.
 
 **Live:** https://nostr-client.github.io/monty/
 
+![screenshot](screenshot.png)
+
 - **Home** — global firehose or your follows, composer on top
 - **Explore** — browse individual relays' feeds (jumble-style), or paste your own
 - **Search** — NIP-50 full-text
