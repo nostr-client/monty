@@ -185,16 +185,8 @@
 <script type="module">
   const { restoreTheme } = await import('https://nostr-client.github.io/theme/themes.js')
   restoreTheme()
-  // hardened shared pool: verify inside, cache outside — before any component loads
-  {
-    const { Pool } = await import('https://nostr-client.github.io/pool/pool.js')
-    const { withVerify } = await import('https://nostr-client.github.io/verify/verify.js')
-    const { withCache } = await import('https://nostr-client.github.io/cache/cache.js')
-    globalThis.__nostrClientPool = withCache(withVerify(new Pool()))
-  }
-  const { applySavedRelays } = await import('https://nostr-client.github.io/relay-manager/relay-manager.js')
-  applySavedRelays()
-
+  // hardened default pool: verified events, local cache, saved relays
+  await import('https://nostr-client.github.io/setup/setup.js')
   import('https://nostr-client.github.io/reactions/reactions.js') // note cards grow reaction bars
   import('https://nostr-client.github.io/tip/tip.js')             // profile cards grow ₿ buttons
   import('https://nostr-client.github.io/wallet/wallet.js')       // built-in wallet + instant tips
